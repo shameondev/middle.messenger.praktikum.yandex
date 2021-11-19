@@ -1,0 +1,9 @@
+{
+  "name": "mfchat",
+  "version": "1.0.0",
+  "description": "chat project for yandex-mf course",
+  "main": "index.js",
+  "repository": "https://github.com/shameondev/middle.messenger.praktikum.yandex.git",
+  "author": "Daniil Fadeev <shameondev@gmail.com>",
+  "license": "MIT"
+}
