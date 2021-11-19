@@ -1,4 +1,3 @@
+import { templateFunction } from '../template';
 
-import {templateFunction} from '../template';
-
-document.body.innerHTML = templateFunction({doesWhat: 'ROOOCKS!!'});
+document.body.innerHTML = templateFunction({ doesWhat: 'ROOOCKS!!' });

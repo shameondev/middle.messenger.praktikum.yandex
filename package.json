@@ -7,11 +7,14 @@
   "author": "Daniil Fadeev <shameondev@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "parcel": "^2.0.1"
+    "parcel": "^2.0.1",
+    "prettier": "^2.4.1"
   },
   "scripts": {
     "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "prettier": "prettier -c \"./**/*.{js,ts,tsx,css,json,html}\"",
+    "prettier:write": "yarn prettier --write"
   },
   "dependencies": {
     "handlebars": "^4.7.7"
