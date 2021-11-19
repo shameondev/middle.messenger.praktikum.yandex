@@ -12,5 +12,8 @@
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.7"
   }
 }
