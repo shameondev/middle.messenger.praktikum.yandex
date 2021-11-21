@@ -1,10 +1,17 @@
 @import './colors.css';
 
-@define-mixin textTitle {
+@define-mixin heroTitle {
   font-family: 'Inter', sans-serif;
   font-size: 40px;
   font-weight: 500;
   line-height: 40px;
+}
+
+@define-mixin textTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
 }
 
 @define-mixin text13 {
