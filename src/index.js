@@ -1,3 +1,6 @@
-import { templateFunction } from '../template';
+import { NotFoundPage } from './pages/NotFoundPage';
+import './index.css';
 
-document.body.innerHTML = templateFunction({ doesWhat: 'ROOOCKS!!' });
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.innerHTML = NotFoundPage;
+});
