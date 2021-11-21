@@ -1,0 +1,13 @@
+@import '../../assets/styles/colors.css';
+@import '../../assets/styles/mixins.css';
+
+.button {
+  padding: 12px 70px;
+  border-radius: 8px;
+  background-color: $main;
+
+  color: $textOnSurface;
+  border: none;
+
+  @mixin text13;
+}
