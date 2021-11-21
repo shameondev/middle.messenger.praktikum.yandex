@@ -11,6 +11,10 @@
   gap: 12px;
 
   .title {
+    @mixin heroTitle;
+  }
+
+  .text {
     @mixin textTitle;
   }
 }
@@ -18,9 +22,9 @@
 .button {
   padding: 12px 70px;
   border-radius: 8px;
-  background-color: $main;
+  background-color: $layoutWhite;
 
-  color: $textOnSurface;
+  color: $main;
   border: none;
   text-decoration: none;
 
