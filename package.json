@@ -7,15 +7,22 @@
   "author": "Daniil Fadeev <shameondev@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "autoprefixer": "^10.4.0",
     "eslint": "^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.3",
     "parcel": "^2.0.1",
-    "prettier": "^2.4.1"
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "parcel-transformer-hbs": "^1.0.4",
+    "postcss-import": "^14.0.2",
+    "postcss-mixins": "^8.1.0",
+    "postcss-nested": "^5.0.6",
+    "prettier": "^2.4.1",
+    "stylelint": "^14.1.0"
   },
   "scripts": {
-    "dev": "parcel index.html",
-    "build": "parcel build index.html",
+    "dev": "parcel static/index.html",
+    "build": "parcel build static/index.html",
     "prettier": "prettier -c \"./**/*.{js,ts,tsx,css,json,html}\"",
     "prettier:write": "yarn prettier --write",
     "eslint": "eslint \"./src/**/*.{js,ts,tsx,jsx}\"",
