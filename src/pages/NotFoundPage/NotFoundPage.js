@@ -1,11 +1,10 @@
-import templateFunction from './NotFoundPage.hbs';
-import '../../components/Button';
-import styles from './NotFoundPage.css';
+import { ErrorPage } from '../components/ErrorPage';
 
-export const NotFoundPage = templateFunction({
-  styles,
+// TODO: Подумать как инкапсулировать стили кнопки в самой кнопке
+
+export const NotFoundPage = ErrorPage({
   title: '404',
   text: 'Кажется вы не туда нажали...',
   buttonText: 'Надо сюда...',
-  buttonHref: '/home',
+  buttonHref: '/',
 });
