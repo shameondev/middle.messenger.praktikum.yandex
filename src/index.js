@@ -5,6 +5,7 @@ import { ServerErrorPage } from './pages/ServerErrorPage';
 import { HomePage } from './pages/HomePage';
 import { SignUpPage } from './pages/SignUpPage';
 import { LogInPage } from './pages/LogInPage';
+import { ChatPage } from './pages/ChatPage';
 
 // TODO: Подумать что делать с ужасной лапшой кода в CSS
 
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else if (document.location.href.split('/')[3] === '500') {
     document.body.innerHTML = ServerErrorPage;
   } else if (document.location.href.split('/')[3] === 'chat') {
-    document.body.innerHTML = 'Чата пока нет';
+    document.body.innerHTML = ChatPage;
   } else {
     document.body.innerHTML = NotFoundPage;
   }
