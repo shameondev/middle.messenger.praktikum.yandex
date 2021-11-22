@@ -1,0 +1,8 @@
+@import '../../assets/styles/colors.css';
+@import '../../assets/styles/mixins.css';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 75px;
+}
