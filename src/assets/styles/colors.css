@@ -6,3 +6,6 @@ $main: #3369f3;
 
 $layoutWhite: #fff;
 $layoutShadow: #efefef;
+
+$borderBlue: $main;
+$borderShadow: #eaeaea;

@@ -21,6 +21,13 @@
   line-height: 13px;
 }
 
+@define-mixin text9 {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 9px;
+}
+
 @define-mixin button {
   padding: 12px 70px;
   border-radius: 8px;
@@ -31,9 +38,16 @@
   text-decoration: none;
 
   @mixin text13;
+}
 
-  &:hover {
-    background-color: $main;
-    color: $textOnSurface;
-  }
+@define-mixin buttonDefault {
+  padding: 12px 70px;
+  border-radius: 8px;
+  background-color: $main;
+
+  color: $textOnSurface;
+  border: none;
+  text-decoration: none;
+
+  @mixin text13;
 }
