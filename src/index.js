@@ -1,4 +1,5 @@
 import './index.css';
+import { last } from './utils/last';
 
 import { NotFoundPage } from './pages/NotFoundPage';
 import { ServerErrorPage } from './pages/ServerErrorPage';
@@ -6,21 +7,22 @@ import { HomePage } from './pages/HomePage';
 import { SignUpPage } from './pages/SignUpPage';
 import { LogInPage } from './pages/LogInPage';
 import { ChatPage } from './pages/ChatPage';
+import { UserPage } from './pages/UserPage';
 
 // TODO: Подумать что делать с ужасной лапшой кода в CSS
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (document.location.href.split('/')[3] === '') {
+  if (last(document.location.href.split('/')) === '') {
     document.body.innerHTML = HomePage;
-  } else if (document.location.href.split('/')[3] === 'signup') {
+  } else if (last(document.location.href.split('/')) === 'signup') {
     document.body.innerHTML = SignUpPage;
-  } else if (document.location.href.split('/')[3] === 'login') {
+  } else if (last(document.location.href.split('/')) === 'login') {
     document.body.innerHTML = LogInPage;
-  } else if (document.location.href.split('/')[3] === 'user') {
-    document.body.innerHTML = 'user';
-  } else if (document.location.href.split('/')[3] === '500') {
+  } else if (last(document.location.href.split('/')) === 'user') {
+    document.body.innerHTML = UserPage;
+  } else if (last(document.location.href.split('/')) === '500') {
     document.body.innerHTML = ServerErrorPage;
-  } else if (document.location.href.split('/')[3] === 'chat') {
+  } else if (last(document.location.href.split('/')) === 'chat') {
     document.body.innerHTML = ChatPage;
   } else {
     document.body.innerHTML = NotFoundPage;
