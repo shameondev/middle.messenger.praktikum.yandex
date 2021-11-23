@@ -14,6 +14,10 @@ import { LoggedOutPage } from './pages/LoggedOutPage';
 
 // TODO: Подумать что делать с ужасной лапшой кода в CSS
 
+// TODO: Компоненты вроде бы есть, но смысла от их переиспользоавния почти нет, надо рефачить
+/* Вот допустим сейчас мне нужно поменять name в форме,
+а я хожу по всему проекту, а не делаю это в одном месте */
+
 document.addEventListener('DOMContentLoaded', () => {
   if (last(document.location.href.split('/')) === '') {
     document.body.innerHTML = HomePage;
