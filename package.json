@@ -44,6 +44,5 @@
     "express": "^4.17.1",
     "fast-glob": "^3.2.7",
     "handlebars": "^4.7.7"
-  },
-  "packageManager": "yarn@1.22.17"
+  }
 }
