@@ -73,6 +73,7 @@
 .buttonDefault {
   @mixin buttonDefault;
   width: 100%;
+  cursor: pointer;
 }
 
 .form {

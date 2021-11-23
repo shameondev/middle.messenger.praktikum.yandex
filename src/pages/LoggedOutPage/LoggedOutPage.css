@@ -1,5 +1,5 @@
-@import '../../../assets/styles/colors.css';
-@import '../../../assets/styles/mixins.css';
+@import '../../assets/styles/colors.css';
+@import '../../assets/styles/mixins.css';
 
 .layout {
   height: 720px;
@@ -21,29 +21,14 @@
 
 .headerButton {
   @mixin button;
-  &:hover {
-    background-color: $main;
-    color: $textOnSurface;
-  }
-}
-
-.button,
-.buttonRed {
-  @mixin button;
 }
 
 .header {
   display: flex;
   justify-content: center;
-  margin-left: 85px;
 }
 
 .buttonBlocked {
   @mixin button;
   color: $textShadow;
-}
-
-.buttonDefault {
-  @mixin buttonDefault;
-  width: 100%;
 }

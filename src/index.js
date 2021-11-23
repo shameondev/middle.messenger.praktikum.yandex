@@ -8,6 +8,9 @@ import { SignUpPage } from './pages/SignUpPage';
 import { LogInPage } from './pages/LogInPage';
 import { ChatPage } from './pages/ChatPage';
 import { UserPage } from './pages/UserPage';
+import { ChangeUserDataPage } from './pages/ChangeUserDataPage';
+import { ChangeUserPasswordPage } from './pages/ChangeUserPasswordPage';
+import { LoggedOutPage } from './pages/LoggedOutPage';
 
 // TODO: Подумать что делать с ужасной лапшой кода в CSS
 
@@ -20,6 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.innerHTML = LogInPage;
   } else if (last(document.location.href.split('/')) === 'user') {
     document.body.innerHTML = UserPage;
+  } else if (last(document.location.href.split('/')) === 'changedata') {
+    document.body.innerHTML = ChangeUserDataPage;
+  } else if (last(document.location.href.split('/')) === 'changepassword') {
+    document.body.innerHTML = ChangeUserPasswordPage;
+  } else if (last(document.location.href.split('/')) === 'logout') {
+    document.body.innerHTML = LoggedOutPage;
   } else if (last(document.location.href.split('/')) === '500') {
     document.body.innerHTML = ServerErrorPage;
   } else if (last(document.location.href.split('/')) === 'chat') {
