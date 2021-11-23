@@ -7,9 +7,4 @@
 
 [build]
   publish = "dist"
-
-[context.branch-deploy.environment]
-  YARN_VERSION = "1.22.17"
-
-[context.production.environment]
-  YARN_VERSION = "1.22.17"
+  
