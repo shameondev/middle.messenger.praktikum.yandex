@@ -10,4 +10,4 @@
 
 [[redirects]]
   from = "/login"
-  to = "/index.html"
+  to = "/index.html/login"
