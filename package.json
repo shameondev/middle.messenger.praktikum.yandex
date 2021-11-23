@@ -34,6 +34,7 @@
   "scripts": {
     "dev": "parcel static/index.html",
     "build": "rm -rf dist && parcel build static/index.html --no-cache",
+    "start": "yarn build && node ./server.js",
     "prettier": "prettier -c \"./**/*.{js,ts,tsx,css,json,html}\"",
     "prettier:write": "yarn prettier --write",
     "eslint": "eslint \"./src/**/*.{js,ts,tsx,jsx}\"",
