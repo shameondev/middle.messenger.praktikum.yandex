@@ -29,7 +29,8 @@
     "postcss-mixins": "^8.1.0",
     "postcss-nested": "^5.0.6",
     "prettier": "^2.4.1",
-    "stylelint": "^14.1.0"
+    "stylelint": "^14.1.0",
+    "typescript": "^4.5.2"
   },
   "scripts": {
     "dev": "parcel static/index.html",
@@ -38,7 +39,8 @@
     "prettier": "prettier -c \"./**/*.{js,ts,tsx,css,json,html}\"",
     "prettier:write": "yarn prettier --write",
     "eslint": "eslint \"./src/**/*.{js,ts,tsx,jsx}\"",
-    "eslint:write": "yarn eslint --fix"
+    "eslint:write": "yarn eslint --fix",
+    "check": "tsc --noEmit"
   },
   "dependencies": {
     "express": "^4.17.1",
