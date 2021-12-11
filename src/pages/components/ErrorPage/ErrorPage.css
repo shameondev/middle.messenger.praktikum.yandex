@@ -21,6 +21,7 @@
 
 .headerButton {
   @mixin button;
+
   &:hover {
     background-color: $main;
     color: $textOnSurface;

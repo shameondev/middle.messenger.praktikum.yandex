@@ -19,23 +19,23 @@ import { LoggedOutPage } from './pages/LoggedOutPage';
 а я хожу по всему проекту, а не делаю это в одном месте */
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (last(document.location.href.split('/')) === '') {
+  if (last(window.location.href.split('/')) === '') {
     document.body.innerHTML = HomePage;
-  } else if (last(document.location.href.split('/')) === 'signup') {
+  } else if (last(window.location.href.split('/')) === 'signup') {
     document.body.innerHTML = SignUpPage;
-  } else if (last(document.location.href.split('/')) === 'login') {
+  } else if (last(window.location.href.split('/')) === 'login') {
     document.body.innerHTML = LogInPage;
-  } else if (last(document.location.href.split('/')) === 'user') {
+  } else if (last(window.location.href.split('/')) === 'user') {
     document.body.innerHTML = UserPage;
-  } else if (last(document.location.href.split('/')) === 'changedata') {
+  } else if (last(window.location.href.split('/')) === 'changedata') {
     document.body.innerHTML = ChangeUserDataPage;
-  } else if (last(document.location.href.split('/')) === 'changepassword') {
+  } else if (last(window.location.href.split('/')) === 'changepassword') {
     document.body.innerHTML = ChangeUserPasswordPage;
-  } else if (last(document.location.href.split('/')) === 'logout') {
+  } else if (last(window.location.href.split('/')) === 'logout') {
     document.body.innerHTML = LoggedOutPage;
-  } else if (last(document.location.href.split('/')) === '500') {
+  } else if (last(window.location.href.split('/')) === '500') {
     document.body.innerHTML = ServerErrorPage;
-  } else if (last(document.location.href.split('/')) === 'chat') {
+  } else if (last(window.location.href.split('/')) === 'chat') {
     document.body.innerHTML = ChatPage;
   } else {
     document.body.innerHTML = NotFoundPage;

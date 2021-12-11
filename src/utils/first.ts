@@ -1,4 +1,4 @@
-export const first = (arr) => {
+export const first = <T>(arr: T[]) => {
   if (!Array.isArray(arr)) {
     return undefined;
   }

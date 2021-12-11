@@ -48,6 +48,7 @@
 
 .headerButton {
   @mixin button;
+
   &:hover {
     background-color: $main;
     color: $textOnSurface;
@@ -80,7 +81,7 @@
   width: 340px;
   margin: 0 auto;
 
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.14);
   border-radius: 12px;
   padding: 48px 24px;
 
@@ -210,7 +211,7 @@
   align-items: center;
 
   a {
-    &:hover {
+    & :hover {
       background-color: $main;
       color: $textOnSurface;
     }
