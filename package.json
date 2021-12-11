@@ -18,6 +18,7 @@
     "node": ">= 16.2.0"
   },
   "devDependencies": {
+    "@types/hbs": "^4.0.1",
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
     "autoprefixer": "^10.4.0",
@@ -44,7 +45,8 @@
     "prettier:write": "yarn prettier --write",
     "eslint": "eslint \"./src/**/*.{js,ts,tsx,jsx}\"",
     "eslint:write": "yarn eslint --fix",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "stylelint": "stylelint \"./src/**/*.css\""
   },
   "dependencies": {
     "express": "^4.17.1",

@@ -1,5 +1,5 @@
 declare module '*.css' {
-  const styles: Record<string, string>;
+  const styles: string;
   export default styles;
 }
 

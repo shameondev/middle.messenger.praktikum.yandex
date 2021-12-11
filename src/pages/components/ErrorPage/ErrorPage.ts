@@ -5,7 +5,7 @@ import styles from './ErrorPage.css';
 
 // TODO: Подумать как инкапсулировать стили кнопки в самой кнопке
 
-export const ErrorPage = (context: any) =>
+export const ErrorPage = (context: Record<string, string>) =>
   templateFunction({
     styles,
     ...context,
