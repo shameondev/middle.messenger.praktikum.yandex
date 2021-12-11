@@ -14,7 +14,6 @@
         "ignore": [
           "after-comment",
           "after-declaration",
-          "first-nested",
           "inside-single-line-block"
         ]
       }
