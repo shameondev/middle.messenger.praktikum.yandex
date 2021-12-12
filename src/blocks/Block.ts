@@ -86,7 +86,7 @@ class Block {
 
   _createResources() {
     const { tagName } = this._meta;
-    this._element = this._createDocumentElement(tagName);
+    this._element = document.createElement(tagName);
   }
 
   init() {
@@ -218,17 +218,6 @@ class Block {
         throw new Error('нет доступа');
       },
     });
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  _createDocumentElement(tagName: string): HTMLTemplateElement {
-    const element = document.createElement(tagName);
-
-    // if (this.props?.settings?.withInternalID) {
-    //   element.setAttribute('data-id', this._id);
-    // }
-
-    return element;
   }
 
   show() {
