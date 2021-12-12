@@ -1,9 +1,9 @@
 {
   "include": ["src/**/*"],
   "compilerOptions": {
-    "lib": ["es6", "dom", "dom.iterable"],
+    "lib": ["es2020", "dom", "dom.iterable"],
     "outDir": "dist",
-    "target": "es6",
+    "target": "es2020",
     "strict": true,
     "declaration": false,
     "module": "commonjs",

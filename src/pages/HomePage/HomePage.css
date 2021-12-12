@@ -18,17 +18,3 @@
     @mixin textTitle;
   }
 }
-
-.headerButton {
-  @mixin button;
-}
-
-.header {
-  display: flex;
-  justify-content: center;
-}
-
-.buttonBlocked {
-  @mixin button;
-  color: $textShadow;
-}

@@ -1,5 +1,13 @@
-import * as Handlebars from 'handlebars';
 import template from './Header.hbs';
-import './Header.css';
+import * as styles from './Header.css';
+import Block, { Props } from '../../blocks/Block';
 
-Handlebars.registerPartial('header', template);
+export default class Header extends Block {
+  constructor(props: Props) {
+    super('header', props);
+  }
+
+  render() {
+    return this.compile(template, { ...this.props, styles });
+  }
+}

@@ -46,15 +46,6 @@
   }
 }
 
-.headerButton {
-  @mixin button;
-
-  &:hover {
-    background-color: $main;
-    color: $textOnSurface;
-  }
-}
-
 .button,
 .buttonRed {
   @mixin button;

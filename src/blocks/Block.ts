@@ -1,10 +1,11 @@
+import { v4 as makeUUID } from 'uuid';
 import EventBus from './EventBus';
 
-type Props = Record<string, any>;
+export type Props = Record<string, any>;
 
 type TMeta = {
   tagName: string;
-  props?: Props;
+  propsAndChildren?: Props;
 };
 
 export type NativeListenersMap = Partial<{
@@ -30,23 +31,50 @@ class Block {
     tagName: 'div',
   };
 
-  private eventBus: () => EventBus;
+  _id = '';
 
-  private props: Props;
+  eventBus: () => EventBus;
 
-  constructor(tagName = 'div', props: Props = {}) {
+  props: Props;
+
+  children: Record<string, any>;
+
+  constructor(tagName = 'div', propsAndChildren: Props = {}) {
     const eventBus = new EventBus();
+
+    const { children, props } = this._getChildren(propsAndChildren);
+
+    this.children = children;
+
     this._meta = {
       tagName,
-      props,
+      propsAndChildren,
     };
 
-    this.props = this._makePropsProxy(props);
+    this._id = makeUUID();
+
+    this.props = this._makePropsProxy({ ...props, _id: this._id });
 
     this.eventBus = () => eventBus;
 
     this._registerEvents(eventBus);
     eventBus.emit(Block.EVENTS.INIT);
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  _getChildren(propsAndChildren: Props) {
+    const children: Record<string, any> = {};
+    const props: Record<string, any> = {};
+
+    Object.entries(propsAndChildren).forEach(([key, value]) => {
+      if (value instanceof Block) {
+        children[key] = value;
+      } else {
+        props[key] = value;
+      }
+    });
+
+    return { children, props };
   }
 
   _registerEvents(eventBus: EventBus) {
@@ -68,6 +96,9 @@ class Block {
 
   _componentDidMount() {
     this.componentDidMount();
+    Object.values(this.children).forEach((child) => {
+      child.dispatchComponentDidMount();
+    });
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 
@@ -91,7 +122,6 @@ class Block {
   // Может переопределять пользователь, необязательно трогать
   // eslint-disable-next-line class-methods-use-this
   componentDidUpdate(...props: Props[]) {
-    console.log('props:', props);
     return true;
   }
 
@@ -132,23 +162,48 @@ class Block {
     const block = this.render();
 
     this._removeEvents();
-    // Этот небезопасный метод для упрощения логики
-    // Используйте шаблонизатор из npm или напишите свой безопасный
-    // Нужно не в строку компилировать (или делать это правильно),
-    // либо сразу в DOM-элементы возвращать из compile DOM-ноду
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    this._element.innerHTML = block;
+
+    this._element.innerHTML = '';
+    this._element.appendChild(block.firstChild);
 
     this._addEvents();
   }
 
-  // Может переопределять пользователь, необязательно трогать
-  // eslint-disable-next-line class-methods-use-this
-  render() {}
+  render(): Node | void {}
+
+  compile(
+    template: HandlebarsTemplateDelegate,
+    props: Props,
+  ): DocumentFragment {
+    const propsAndStubs = { ...props };
+
+    Object.entries(this.children).forEach(([key, child]) => {
+      propsAndStubs[key] = `<div data-id="${child._id}"></div>`;
+    });
+
+    const fragment = document.createElement('template');
+    fragment.innerHTML = template(propsAndStubs);
+    console.log('Fragment content', fragment.content);
+
+    Object.values(this.children).forEach((child) => {
+      console.log('fragment.content:', fragment.content);
+      console.log('fragment.innerHTML:', fragment.innerHTML);
+      const stub = fragment.content.querySelector(`[data-id="${child._id}"]`);
+
+      if (stub) {
+        stub.replaceWith(child.getContent());
+      }
+    });
+
+    return fragment.content;
+  }
 
   getContent() {
     return this._element;
+  }
+
+  getId() {
+    return this._id;
   }
 
   _makePropsProxy(props: Props) {
@@ -156,14 +211,6 @@ class Block {
     const self = this;
 
     return new Proxy(props, {
-      get(target, prop: string) {
-        if (prop.startsWith('_')) {
-          throw new Error('нет доступа');
-        } else {
-          const value = target[prop] as string | (<T>(...args: [T]) => void);
-          return typeof value === 'function' ? value.bind(target) : value;
-        }
-      },
       set(target, prop: string, val: string) {
         // eslint-disable-next-line no-param-reassign
         target[prop] = val;
@@ -177,9 +224,14 @@ class Block {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  _createDocumentElement(tagName: string): HTMLElement {
-    // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
-    return document.createElement(tagName);
+  _createDocumentElement(tagName: string): HTMLTemplateElement {
+    const element = document.createElement(tagName);
+
+    // if (this.props?.settings?.withInternalID) {
+    //   element.setAttribute('data-id', this._id);
+    // }
+
+    return element;
   }
 
   show() {

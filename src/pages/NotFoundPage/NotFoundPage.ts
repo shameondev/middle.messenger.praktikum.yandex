@@ -1,10 +1,6 @@
-import { ErrorPage } from '../components/ErrorPage';
+import ErrorPageTemplate from '../components/ErrorPageTemplate';
 
-// TODO: Подумать как инкапсулировать стили кнопки в самой кнопке
-
-export const NotFoundPage = ErrorPage({
+export const NotFoundPage = new ErrorPageTemplate({
   title: '404',
-  text: 'Кажется вы не туда нажали...',
-  buttonText: 'Надо сюда...',
-  buttonHref: '/',
+  text: 'Такой страницы не существует',
 });

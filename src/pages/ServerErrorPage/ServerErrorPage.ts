@@ -1,10 +1,6 @@
-import { ErrorPage } from '../components/ErrorPage';
+import ErrorPageTemplate from '../components/ErrorPageTemplate';
 
-// TODO: Подумать как инкапсулировать стили кнопки в самой кнопке
-
-export const ServerErrorPage = ErrorPage({
+export const ServerErrorPage = new ErrorPageTemplate({
   title: '500',
-  text: 'Мы уже фиксим',
-  buttonText: 'Туда, где работает...',
-  buttonHref: '/',
+  text: 'Ошибка сервера',
 });
