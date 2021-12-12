@@ -183,11 +183,8 @@ class Block {
 
     const fragment = document.createElement('template');
     fragment.innerHTML = template(propsAndStubs);
-    console.log('Fragment content', fragment.content);
 
     Object.values(this.children).forEach((child) => {
-      console.log('fragment.content:', fragment.content);
-      console.log('fragment.innerHTML:', fragment.innerHTML);
       const stub = fragment.content.querySelector(`[data-id="${child._id}"]`);
 
       if (stub) {

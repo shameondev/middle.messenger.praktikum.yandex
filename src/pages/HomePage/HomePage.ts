@@ -1,10 +1,8 @@
 import templateFunction from './HomePage.hbs';
 import styles from './HomePage.css';
 import Block, { Props } from '../../blocks/Block';
-import Header from '../../components/Header';
 import BasePage from '../../views/BasePage';
-
-const header = new Header({});
+import { SignUpPage } from '../SignUpPage';
 
 class HomePageClass extends Block {
   constructor(props: Props) {
@@ -26,6 +24,15 @@ export const HomePageWithHeader = new HomePageClass({
 });
 
 export const page = new BasePage({
-  header,
   body: HomePageWithHeader,
 });
+page.setProps({ body: SignUpPage });
+
+/* Не понимаю, так вообще можно будеть делать?
+   page будет базовой разметкой с хедером и там только в боди
+   подставлять разные компоненты. Пока не работает.
+   Помогите. Я туда иду?
+ */
+// setTimeout(() => {
+//   page.setProps({ body: SignUpPage });
+// }, 3000);
