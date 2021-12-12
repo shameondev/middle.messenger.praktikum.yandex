@@ -1,0 +1,48 @@
+@import '../../../assets/styles/colors.css';
+@import '../../../assets/styles/mixins.css';
+
+.layout {
+  height: 720px;
+  width: 1280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  .title {
+    @mixin heroTitle;
+  }
+
+  .text {
+    @mixin textTitle;
+  }
+}
+
+.headerButton {
+  @mixin button;
+  &:hover {
+    background-color: $main;
+    color: $textOnSurface;
+  }
+}
+
+.button,
+.buttonRed {
+  @mixin button;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.buttonBlocked {
+  @mixin button;
+  color: $textShadow;
+}
+
+.buttonDefault {
+  @mixin buttonDefault;
+  width: 100%;
+}

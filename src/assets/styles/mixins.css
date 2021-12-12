@@ -1,0 +1,53 @@
+@import './colors.css';
+
+@define-mixin heroTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 40px;
+}
+
+@define-mixin textTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+@define-mixin text13 {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 13px;
+}
+
+@define-mixin text9 {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 9px;
+}
+
+@define-mixin button {
+  padding: 12px 70px;
+  border-radius: 8px;
+  background-color: $layoutWhite;
+
+  color: $main;
+  border: none;
+  text-decoration: none;
+
+  @mixin text13;
+}
+
+@define-mixin buttonDefault {
+  padding: 12px 70px;
+  border-radius: 8px;
+  background-color: $main;
+
+  color: $textOnSurface;
+  border: none;
+  text-decoration: none;
+
+  @mixin text13;
+}

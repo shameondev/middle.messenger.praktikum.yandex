@@ -1,0 +1,10 @@
+.DS_STORE
+
+.idea/
+node_modules/
+dist/
+.parcel-cache/
+
+
+yarn-error.log
+.yarn/

@@ -1,0 +1,39 @@
+{{> header}}
+<div class={{styles.layout}}>
+  <aside class={{styles.sideContainer}}><a href='/user' class={{styles.backButton}}>&larr;</a></aside>
+  <div class={{styles.container}}>
+    <div class={{styles.avatar}}></div>
+    <div class={{styles.userinfocontainer}}>
+      <form class={{styles.form}} action="/signup" method="post">
+        <ul>
+          <li>
+            <label for='email'>Почта</label>
+            <input type="email" name="email" id='email' value='pochta@yandex.ru'>
+          </li>
+          <li>
+            <label for='login'>Логин</label>
+            <input type="text" name="login" id='login' value='de.fadeev'>
+          </li>
+          <li>
+            <label for='first_name'>Имя</label>
+            <input type="text" name="first_name" id='first_name' value='Даниил'>
+          </li>
+          <li>
+            <label for='second_name'>Фамилия</label>
+            <input type="text" name="second_name" id='second_name' value='Фадеев'>
+          </li>
+          <li>
+            <label for='display_name'>Имя в чате</label>
+            <input type="text" name="display_name" id='display_name' value='Даня'>
+          </li>
+          <li>
+            <label for='phone'>Телефон</label>
+            <input type="tel" name="phone" id='phone' value='+7 (916) 818-28-28'>
+          </li>
+          <li>
+            <button class={{styles.buttonDefault}} type="submit" name="submit">Сохранить</button>
+          </li>
+        </ul>
+      </form>
+  </div>
+</div>

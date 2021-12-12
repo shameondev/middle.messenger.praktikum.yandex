@@ -1,0 +1,48 @@
+{
+  "name": "mfchat",
+  "version": "1.0.0",
+  "description": "chat project for yandex-mf course",
+  "repository": "https://github.com/shameondev/middle.messenger.praktikum.yandex.git",
+  "author": "Daniil Fadeev <shameondev@gmail.com>",
+  "license": "MIT",
+  "targets": {
+    "browserModern": {
+      "engines": {
+        "browsers": [
+          "> 0.5%, last 2 versions, not dead"
+        ]
+      }
+    }
+  },
+  "engines": {
+    "node": ">= 16.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "parcel": "^2.0.1",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "parcel-transformer-hbs": "^1.0.4",
+    "postcss-import": "^14.0.2",
+    "postcss-mixins": "^8.1.0",
+    "postcss-nested": "^5.0.6",
+    "prettier": "^2.4.1",
+    "stylelint": "^14.1.0"
+  },
+  "scripts": {
+    "dev": "parcel static/index.html",
+    "build": "yarn && rm -rf dist && parcel build static/index.html --no-cache",
+    "start": "yarn build && node ./server.js",
+    "prettier": "prettier -c \"./**/*.{js,ts,tsx,css,json,html}\"",
+    "prettier:write": "yarn prettier --write",
+    "eslint": "eslint \"./src/**/*.{js,ts,tsx,jsx}\"",
+    "eslint:write": "yarn eslint --fix"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "fast-glob": "^3.2.7",
+    "handlebars": "^4.7.7"
+  }
+}
