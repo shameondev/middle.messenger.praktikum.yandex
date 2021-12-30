@@ -10,7 +10,7 @@ import { ChangeUserDataPage } from './pages/ChangeUserDataPage';
 import { ChangeUserPasswordPage } from './pages/ChangeUserPasswordPage';
 import { LoggedOutPage } from './pages/LoggedOutPage';
 import Block from './blocks/Block';
-import { page } from './pages/HomePage';
+import { HomePage } from './pages/HomePage';
 import { SignUpPage } from './pages/SignUpPage';
 
 const isLocationMatches = (location: string): boolean =>
@@ -30,12 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const renderComponent = (component: Block) => {
-    console.log('component.getContent():', component);
     appContainer.appendChild(component.getContent());
   };
 
   if (isLocationMatches('')) {
-    renderComponent(page);
+    renderComponent(HomePage);
   } else if (isLocationMatches('signup')) {
     // тут не рендерится хедер, хотя я пытался использовать basePage
     renderComponent(SignUpPage);

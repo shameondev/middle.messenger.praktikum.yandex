@@ -2,7 +2,6 @@ import templateFunction from './HomePage.hbs';
 import styles from './HomePage.css';
 import Block, { Props } from '../../blocks/Block';
 import BasePage from '../../views/BasePage';
-import { SignUpPage } from '../SignUpPage';
 
 class HomePageClass extends Block {
   constructor(props: Props) {
@@ -18,21 +17,11 @@ class HomePageClass extends Block {
   }
 }
 
-export const HomePageWithHeader = new HomePageClass({
+export const HomePageInstance = new HomePageClass({
   title: 'Домашняя страница',
   text: 'Из хедера можно переключаться между компонентами',
 });
 
-export const page = new BasePage({
-  body: HomePageWithHeader,
+export const HomePage = new BasePage({
+  body: HomePageInstance,
 });
-page.setProps({ body: SignUpPage });
-
-/* Не понимаю, так вообще можно будеть делать?
-   page будет базовой разметкой с хедером и там только в боди
-   подставлять разные компоненты. Пока не работает.
-   Помогите. Я туда иду?
- */
-// setTimeout(() => {
-//   page.setProps({ body: SignUpPage });
-// }, 3000);

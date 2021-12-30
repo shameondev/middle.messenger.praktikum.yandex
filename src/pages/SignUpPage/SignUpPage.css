@@ -62,25 +62,4 @@
   li:last-of-type {
     margin-top: 48px;
   }
-
-  label {
-    display: block;
-    width: 280px;
-    text-align: left;
-
-    color: $textShadow;
-
-    @mixin text9;
-  }
-
-  input {
-    @mixin text13;
-    line-height: 20px;
-
-    width: 280px;
-    box-sizing: border-box;
-
-    border: none;
-    border-bottom: 1px solid $main;
-  }
 }

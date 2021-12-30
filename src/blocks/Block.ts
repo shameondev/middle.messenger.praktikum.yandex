@@ -24,7 +24,6 @@ class Block {
   };
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
   _element: HTMLElement;
 
   _meta: TMeta = {
@@ -45,6 +44,7 @@ class Block {
     const { children, props } = this._getChildren(propsAndChildren);
 
     this.children = children;
+    this._element = document.createElement('div');
 
     this._meta = {
       tagName,
@@ -129,8 +129,6 @@ class Block {
     const { events = {} } = this.props;
 
     Object.keys(events as NativeListenersMap).forEach((eventName) => {
-      // eslint-disable-next-line max-len
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument,@typescript-eslint/no-unsafe-member-access
       this._element?.addEventListener(eventName, events[eventName]);
     });
   }
@@ -140,8 +138,6 @@ class Block {
 
     Object.keys(events as EventListenerOrEventListenerObject).forEach(
       (eventName) => {
-        // eslint-disable-next-line max-len
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument,@typescript-eslint/no-unsafe-member-access
         this._element?.removeEventListener(eventName, events[eventName]);
       },
     );
@@ -154,22 +150,20 @@ class Block {
     Object.assign(this.props, nextProps);
   };
 
-  get element() {
-    return this._element;
-  }
-
   _render() {
     const block = this.render();
 
     this._removeEvents();
 
     this._element.innerHTML = '';
-    this._element.appendChild(block.firstChild);
+    this._element.appendChild(block);
 
     this._addEvents();
   }
 
-  render(): Node | void {}
+  render() {
+    return document.createDocumentFragment();
+  }
 
   compile(
     template: HandlebarsTemplateDelegate,
@@ -195,23 +189,28 @@ class Block {
     return fragment.content;
   }
 
+  get element() {
+    return this._element;
+  }
+
   getContent() {
     return this._element;
   }
 
-  getId() {
+  get id() {
     return this._id;
   }
 
-  _makePropsProxy(props: Props) {
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
-    const self = this;
+  getId() {
+    return this.id;
+  }
 
+  _makePropsProxy(props: Props) {
     return new Proxy(props, {
-      set(target, prop: string, val: string) {
+      set: (target, prop: string, val: string) => {
         // eslint-disable-next-line no-param-reassign
         target[prop] = val;
-        self.eventBus().emit(Block.EVENTS.FLOW_CDU, { ...target }, target);
+        this.eventBus().emit(Block.EVENTS.FLOW_CDU, { ...target }, target);
         return true;
       },
       deleteProperty() {

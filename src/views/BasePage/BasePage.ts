@@ -6,17 +6,13 @@ import Header from '../../components/Header';
 export default class BasePage extends Block {
   constructor(props: Props) {
     super('div', { ...props });
-
-    /*
-     *  пытаюсь тут сохранить хедер внутри класса
-     *  */
-    this.children.header = new Header({});
   }
 
   render() {
+    this.children.header = new Header({});
+
     return this.compile(template, {
       body: this.props.body,
-      title: this.props.title,
       styles,
     });
   }
