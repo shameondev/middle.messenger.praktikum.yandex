@@ -1,4 +1,4 @@
-export const last = (arr) => {
+export const last = <T>(arr: T[]) => {
   if (!Array.isArray(arr)) {
     return undefined;
   }

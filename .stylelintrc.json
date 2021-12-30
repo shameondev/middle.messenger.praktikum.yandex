@@ -1,0 +1,22 @@
+{
+  "extends": "stylelint-config-standard",
+  "ignoreFiles": ["node_modules/**/*.*", "dist/**/*.*"],
+  "rules": {
+    "string-quotes": "single",
+    "at-rule-no-unknown": null,
+    "selector-class-pattern": null,
+    "value-keyword-case": null,
+    "alpha-value-notation": "number",
+    "color-function-notation": "legacy",
+    "declaration-empty-line-before": [
+      "never",
+      {
+        "ignore": [
+          "after-comment",
+          "after-declaration",
+          "inside-single-line-block"
+        ]
+      }
+    ]
+  }
+}

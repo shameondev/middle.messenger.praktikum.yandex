@@ -19,27 +19,9 @@
   }
 }
 
-.headerButton {
-  @mixin button;
-  &:hover {
-    background-color: $main;
-    color: $textOnSurface;
-  }
-}
-
 .button,
 .buttonRed {
   @mixin button;
-}
-
-.header {
-  display: flex;
-  justify-content: center;
-}
-
-.buttonBlocked {
-  @mixin button;
-  color: $textShadow;
 }
 
 .buttonDefault {

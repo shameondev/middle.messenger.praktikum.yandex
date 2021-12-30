@@ -4,5 +4,24 @@
 .header {
   display: flex;
   justify-content: space-between;
-  height: 75px;
+  align-items: center;
+}
+
+.headerButton {
+  @mixin button;
+
+  &:hover {
+    background-color: $main;
+    color: $textOnSurface;
+  }
+}
+
+.buttonBlocked {
+  @mixin button;
+  color: $textShadow;
+
+  &:hover {
+    background-color: $main;
+    color: $textOnSurface;
+  }
 }
